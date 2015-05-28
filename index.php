@@ -1,27 +1,223 @@
 <?php
 include("header.php");
 
+$q=$_GET["q"];
+
+//$name_file="annuaire_telephonique_OMP";
+$name_file="listeWithPageProfil";
+$ext_file=".csv";
+$annuaire="".$name_file."".$ext_file."";
+//$pageProfil="false";
+
+//$dir="../annuaire-".$labo."";
+$file_annuaire="".$annuaire."";
+
+$acronymGroup = array(
+    "SAR" => "Service Appui Recherche",
+    "BIOGEOCHIM" => "Biogéochimie et transfert aux interfaces",
+    "ECSECO" => "Ecotoxicologie et santé des écosystèmes",
+    "CIRCE" => "Ecologie des communautés : interactions, interfaces & contraintes",
+    "DYNABIO" => "Dynamique passée et actuelle de la biodiversité terrestre",
+    "BIOREF" => "Biodiversité, réseaux trophiques et flux dans les écosystèmes auquatiques",
+);
+include ("parametres.php");
+
+
 ?>
-<div class="container" style="padding-top:20px">
-    <div class="col-md-12">
-        <label>Choisissez le laboratoire </label>
-        <select name="labo" onchange="listing(this.value)">
-            <option value="none">Choisissez...</li>
-            <option value="CESBIO">Centre d'Etudes Spatiales de la BIOsphère - CESBIO - UMR 5126</option>
-            <option value="ECOLAB">Laboratoire d'Ecologie Fonctionnelle et Environnement - ECOLAB - UMR 5245</option>
-            <option value="GET">Géosciences Environnement Toulouse - GET - UMR 5563</option>
-            <option value="IRAP">Institut de Recherche en Astrophysique et Planétologie - IRAP - UMR 5277</option>
-            <option value="LA">Laboratoire d'Aérologie - LA - UMR 5560</option>
-            <option value="LEGOS">Laboratoire d'Etudes Géospatiales de l'Océan et des surfaces - LEGOS - UMR 5566</option>
-            <option value="TBL">Télescope Bernard Lyot - TBL - UMR 5566</option>
-            <option value="UMS831">Unité Mixte de Services -UMS 831</option>
-        </select>
-    </div>
 
-<div id="Filter"></div>
-</div>
+<label for="searchUser">Chercher par le nom</label>
+<input type="text" id="searchUser" placeholder="Saisir le nom de la personne" name="searchUser">
+
+<h2>Chercher par laboratoire</h2>
+
+<section class="ff-container">
+    <input id="select-type-all" name="radio-set-1" type="radio" class="ff-selector-type-all" checked="checked" />
+    <label for="select-type-all" class="ff-label-type-all">All</label>
+    
+    <input id="select-type-cesbio" name="radio-set-1" type="radio" class="ff-selector-type-cesbio" />
+    <label for="select-type-cesbio" class="ff-label-type-cesbio">CESBIO</label>
+    
+    <input id="select-type-ecolab" name="radio-set-1" type="radio" class="ff-selector-type-ecolab" />
+    <label for="select-type-ecolab" class="ff-label-type-ecolab">ECOLAB</label>
+
+    <input id="select-type-irap" name="radio-set-1" type="radio" class="ff-selector-type-irap" />
+    <label for="select-type-irap" class="ff-label-type-irap">IRAP</label>
+
+    <input id="select-type-get" name="radio-set-1" type="radio" class="ff-selector-type-get" />
+    <label for="select-type-get" class="ff-label-type-get">GET</label>
+    
+    <input id="select-type-aerologie" name="radio-set-1" type="radio" class="ff-selector-type-aerologie" />
+    <label for="select-type-aerologie" class="ff-label-type-aerologie">AEROLOGIE</label>
+
+    <input id="select-type-legos" name="radio-set-1" type="radio" class="ff-selector-type-legos" />
+    <label for="select-type-legos" class="ff-label-type-legos">LEGOS</label>
+
+    <input id="select-type-tbl" name="radio-set-1" type="radio" class="ff-selector-type-tbl" />
+    <label for="select-type-tbl" class="ff-label-type-tbl">TBL</label>
+
+    <input id="select-type-ums" name="radio-set-1" type="radio" class="ff-selector-type-ums" />
+    <label for="select-type-ums" class="ff-label-type-ums">UMS</label>
+
+    <!--<div id="group-nav" class="listNav"></div> liste alpha -->
+
+    <ul id="group" class="ff-items list">
+
+        <?php
+        $i=0;
+        $file=fopen($file_annuaire, "r");
+        while(!feof($file)) 
+        {
+            
+            $ligne=fgets($file, 10000);
+            $data=explode(";",$ligne);
+            if (array_key_exists (0, $data)){$labo=$data[0];}
+            if (array_key_exists (1, $data)){$nom=strtoupper($data[1]);}
+            if (array_key_exists (2, $data)){$prenom=strtoupper($data[2]);}
+            if (array_key_exists (3, $data)){$mail=explode("@", $data[3]);}
+            if (array_key_exists (4, $data)){$tel=explode(",",$data[4]);}
+            if (array_key_exists (5, $data)){$bureau=explode(",",$data[5]);}
+            if (array_key_exists (6, $data)){$site=$data[6];}
+            if (array_key_exists (7, $data)){$status=$data[7];}
+            if (array_key_exists (8, $data)){$equipe=explode(",",$data[8]);}
+            if (array_key_exists (10, $data)){$pageProfil=$data[10];}
+
+            if ($i > 0)
+            {
+            ///// remplacement DE TOUS LES ESPACES par des "-" sur NOM PRENOM
+            $nom_url=str_replace(" ", "-", $nom);
+            $prenom_url=str_replace(" ", "-", $prenom);
+
+/*
+if ((strcmp($pageProfil, "true")) > 0)
+                    {
+                        $url_profil=$url_labo[CESBIO]."profils/".$nom_url."_".$prenom_url;
+                    }
+
+if ((strcmp($pageProfil, "true")) > 0)
+                    {
+                        $url_profil=$url_labo[ECOLAB]."profils/".$nom_url."_".$prenom_url;
+                    }    
+
+if ((strcmp($pageProfil, "true")) > 0)
+                    {
+                        $url_profil=$url_labo[IRAP]."profils/".$nom_url."_".$prenom_url;
+                    }    
 
 
+if ((strcmp($pageProfil, "true")) > 0)
+                    {
+                        if (($nom == "GUILLAUME")&&($prenom == "ANNE-MAGALI"))
+                        {
+                        $url_profil=$url_labo[$q]."profils/Seydoux-Guillaume_Anne-Magali";
+                        }
+                        else
+                        {
+                        $url_profil=$url_labo[GET]."profils/".$nom_url."_".$prenom_url;
+                        }
+                    }
+
+
+if ((strcmp($pageProfil, "true")) > 0)
+                    {
+                        $url_profil=$url_labo[LA]."profils/".$nom_url."_".$prenom_url;
+                    }      
+
+
+if ((strcmp($pageProfil, "true")) > 0)
+                    {
+                    $url_profil=$url_labo[$q].$nom_url;  
+                    }        
+
+if ((strcmp($pageProfil, "true")) > 0)
+                    {
+                        $url_profil=$url_labo[UMS831]."profils/".$nom_url."_".$prenom_url;
+                    }                        
+*/
+
+
+            switch ($labo) {
+                case "CESBIO":
+                    $classe = "cesbio";                    
+                break;
+
+                case "ECOLAB":
+                    $classe = "ecolab";  
+                                  
+                break;
+
+                case "IRAP":
+                    $classe = "irap"; 
+                                  
+                break;
+
+                case "GET":
+                    $classe = "get";
+                   
+                break;
+
+                case "LA":
+                    $classe = "aerologie";
+                    
+                break;
+
+                case "LEGOS":
+                    $classe = "legos";   
+                           
+                break;
+
+                case "TBL":
+                    $classe = "tbl";
+                break;
+
+                case "UMS831":
+                    $classe = "ums";  
+                                    
+                break;
+            }
+
+            echo "<li class=\"ff-item-type-".$classe."\">";
+            echo "<span>".$nom." ".$prenom."</span>";
+            echo "<span class=\"tel\">";
+                foreach ($tel as $telValue)
+                {
+                    echo "".$telValue." ";
+                }
+            echo "</span>";
+            echo "<span class=\"mail\">".$mail[0]."<i class=\"hide\">NO SPAM -- FILTER</i>@";
+            // Vérification que l'adresse mail ne soit pas no_mail@, clé 1 (domaine) non déclarée
+            if (array_key_exists (1, $mail))
+            {
+                echo "<i class=\"hide\">NO SPAM -- FILTER</i>".$mail[1]."</span>";
+            }
+
+            echo "<span class=\"equipe\">";
+                foreach ($equipe as $equipeValue)
+                {
+                    echo "".$equipeValue." ";
+                }
+            echo "</span>";
+            echo "<span class=\"bureau\">";
+                foreach ($bureau as $bureauValue)
+                {
+                    echo "".$bureauValue."<br>";
+                }
+            echo "</span>";
+            echo "<span class=\"site\">".$site."</span>";
+            
+            echo "</li>"; 
+            $i++;
+        }
+
+        ?>
+    </ul>
+
+</section>
+/*if ((strcmp($pageProfil, "true")) > 0)
+            {
+            echo "<span class=\"web\"><a href=\"".$url_profil."\" target=\"_blank\">
+                Page profil</a></span>";            
+
+            }*/
 
 </body>
 </html>
