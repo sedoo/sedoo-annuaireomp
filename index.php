@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-$q=$_GET["q"];
+//$q=$_GET["q"];
 
 //$name_file="annuaire_telephonique_OMP";
 $name_file="listeWithPageProfil";
@@ -87,137 +87,120 @@ include ("parametres.php");
             $nom_url=str_replace(" ", "-", $nom);
             $prenom_url=str_replace(" ", "-", $prenom);
 
-/*
-if ((strcmp($pageProfil, "true")) > 0)
+                switch ($labo) {
+                    //////////////////////////////////////////////////////////////////////////
+                    case "CESBIO":
+                        $classe = "cesbio"; 
+                        if ((strcmp($pageProfil, "true")) > 0)
+                        {
+                            $url_profil=$url_labo[CESBIO]."profils/".$nom_url."_".$prenom_url;
+                        }                   
+                    break;
+                    //////////////////////////////////////////////////////////////////////////
+                    case "ECOLAB":
+                        $classe = "ecolab";  
+                        if ((strcmp($pageProfil, "true")) > 0)
+                        {
+                            $url_profil=$url_labo[ECOLAB]."profils/".$nom_url."_".$prenom_url;
+                        }          
+                    break;
+                    //////////////////////////////////////////////////////////////////////////
+                    case "IRAP":
+                        $classe = "irap"; 
+                        if ((strcmp($pageProfil, "true")) > 0)
+                        {
+                            $url_profil=$url_labo[IRAP]."profils/".$nom_url."_".$prenom_url;
+                        } 
+                    break;
+                    //////////////////////////////////////////////////////////////////////////
+                    case "GET":
+                        $classe = "get";           
+                        if ((strcmp($pageProfil, "true")) > 0)
+                        {
+                            if (($nom == "GUILLAUME")&&($prenom == "ANNE-MAGALI"))
+                            {
+                            $url_profil=$url_labo[$q]."profils/Seydoux-Guillaume_Anne-Magali";
+                            }
+                            else
+                            {
+                            $url_profil=$url_labo[GET]."profils/".$nom_url."_".$prenom_url;
+                            }
+                        }
+                    break;
+                    //////////////////////////////////////////////////////////////////////////
+                    case "LA":
+                        $classe = "aerologie";
+                        if ((strcmp($pageProfil, "true")) > 0)
+                        {
+                            $url_profil=$url_labo[LA]."profils/".$nom_url."_".$prenom_url;
+                        }                   
+                    break;
+                    //////////////////////////////////////////////////////////////////////////
+                    case "LEGOS":
+                        $classe = "legos";   
+                        $url_profil=$url_labo[LEGOS].$nom_url;
+                    break;
+                    //////////////////////////////////////////////////////////////////////////
+                    case "TBL":
+                        $classe = "tbl";
+
+                    break;
+                    //////////////////////////////////////////////////////////////////////////
+                    case "UMS831":
+                        $classe = "ums";  
+                        if ((strcmp($pageProfil, "true")) > 0)
+                        {
+                            $url_profil=$url_labo[UMS831]."profils/".$nom_url."_".$prenom_url;
+                        }          
+                    break;
+                }
+
+                echo "<li class=\"ff-item-type-".$classe."\">";
+                echo "<span>".$nom." ".$prenom."</span>";
+                echo "<span class=\"tel\">";
+                    foreach ($tel as $telValue)
                     {
-                        $url_profil=$url_labo[CESBIO]."profils/".$nom_url."_".$prenom_url;
+                        echo "".$telValue." ";
+                    }
+                echo "</span>";
+                echo "<span class=\"mail\">".$mail[0]."<i class=\"hide\">NO SPAM -- FILTER</i>@";
+                // Vérification que l'adresse mail ne soit pas no_mail@, clé 1 (domaine) non déclarée
+                if (array_key_exists (1, $mail))
+                    {
+                    echo "<i class=\"hide\">NO SPAM -- FILTER</i>".$mail[1]."</span>";
                     }
 
-if ((strcmp($pageProfil, "true")) > 0)
+                echo "<span class=\"equipe\">";
+                    foreach ($equipe as $equipeValue)
                     {
-                        $url_profil=$url_labo[ECOLAB]."profils/".$nom_url."_".$prenom_url;
-                    }    
-
-if ((strcmp($pageProfil, "true")) > 0)
-                    {
-                        $url_profil=$url_labo[IRAP]."profils/".$nom_url."_".$prenom_url;
-                    }    
-
-
-if ((strcmp($pageProfil, "true")) > 0)
-                    {
-                        if (($nom == "GUILLAUME")&&($prenom == "ANNE-MAGALI"))
-                        {
-                        $url_profil=$url_labo[$q]."profils/Seydoux-Guillaume_Anne-Magali";
-                        }
-                        else
-                        {
-                        $url_profil=$url_labo[GET]."profils/".$nom_url."_".$prenom_url;
-                        }
+                        echo "".$equipeValue."<br>";
                     }
-
-
-if ((strcmp($pageProfil, "true")) > 0)
+                echo "</span>";
+                echo "<span class=\"bureau\">";
+                    foreach ($bureau as $bureauValue)
                     {
-                        $url_profil=$url_labo[LA]."profils/".$nom_url."_".$prenom_url;
-                    }      
+                        echo "".$bureauValue."<br>";
+                    }
+                echo "</span>";
+                echo "<span class=\"site\">".$site."</span>";
 
-
-if ((strcmp($pageProfil, "true")) > 0)
-                    {
-                    $url_profil=$url_labo[$q].$nom_url;  
-                    }        
-
-if ((strcmp($pageProfil, "true")) > 0)
-                    {
-                        $url_profil=$url_labo[UMS831]."profils/".$nom_url."_".$prenom_url;
-                    }                        
-*/
-
-
-            switch ($labo) {
-                case "CESBIO":
-                    $classe = "cesbio";                    
-                break;
-
-                case "ECOLAB":
-                    $classe = "ecolab";  
-                                  
-                break;
-
-                case "IRAP":
-                    $classe = "irap"; 
-                                  
-                break;
-
-                case "GET":
-                    $classe = "get";
-                   
-                break;
-
-                case "LA":
-                    $classe = "aerologie";
-                    
-                break;
-
-                case "LEGOS":
-                    $classe = "legos";   
-                           
-                break;
-
-                case "TBL":
-                    $classe = "tbl";
-                break;
-
-                case "UMS831":
-                    $classe = "ums";  
-                                    
-                break;
-            }
-
-            echo "<li class=\"ff-item-type-".$classe."\">";
-            echo "<span>".$nom." ".$prenom."</span>";
-            echo "<span class=\"tel\">";
-                foreach ($tel as $telValue)
+                if ((strcmp($pageProfil, "true")) > 0)
                 {
-                    echo "".$telValue." ";
+                echo "<span class=\"web\"><a href=\"".$url_profil."\" target=\"_blank\">
+                    Page profil</a></span>";            
                 }
-            echo "</span>";
-            echo "<span class=\"mail\">".$mail[0]."<i class=\"hide\">NO SPAM -- FILTER</i>@";
-            // Vérification que l'adresse mail ne soit pas no_mail@, clé 1 (domaine) non déclarée
-            if (array_key_exists (1, $mail))
-            {
-                echo "<i class=\"hide\">NO SPAM -- FILTER</i>".$mail[1]."</span>";
-            }
-
-            echo "<span class=\"equipe\">";
-                foreach ($equipe as $equipeValue)
-                {
-                    echo "".$equipeValue." ";
-                }
-            echo "</span>";
-            echo "<span class=\"bureau\">";
-                foreach ($bureau as $bureauValue)
-                {
-                    echo "".$bureauValue."<br>";
-                }
-            echo "</span>";
-            echo "<span class=\"site\">".$site."</span>";
-            
-            echo "</li>"; 
+                
+                echo "</li>"; 
+                
+            }       //end if $i>0
             $i++;
-        }
+        }           //end while
 
         ?>
     </ul>
 
 </section>
-/*if ((strcmp($pageProfil, "true")) > 0)
-            {
-            echo "<span class=\"web\"><a href=\"".$url_profil."\" target=\"_blank\">
-                Page profil</a></span>";            
-
-            }*/
-
+<!--/**/
+-->
 </body>
 </html>

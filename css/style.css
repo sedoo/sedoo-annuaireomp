@@ -153,8 +153,8 @@ sup {
 ALPHA PLUGIN
 *************************/
 [id="group-nav"] {
-	padding-left:5px;
-	position: relative;
+  padding-left:5px;
+  position: relative;
 }
 
 /* Listing alphabétique (jquery)*/
@@ -178,14 +178,22 @@ ALPHA PLUGIN
 
 .ff-container{
   /*width: 564px;*/
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow:row wrap;
-  justify-content:space-around;
+  -webkit-flex-flow:row wrap;
+      -ms-flex-flow:row wrap;
+          flex-flow:row wrap;
+  -webkit-justify-content:space-around;
+      -ms-flex-pack:distribute;
+          justify-content:space-around;
   margin: 10px auto 30px auto;
 }
 
 .ff-container label{
-  flex:1 1 auto;
+  -webkit-flex:1 1 auto;
+      -ms-flex:1 1 auto;
+          flex:1 1 auto;
   height: 30px;
   cursor: pointer;
   color: #777;
@@ -218,15 +226,24 @@ ALPHA PLUGIN
 }
 
 .listNav {
-  flex:1 1 100%;
+  -webkit-flex:1 1 100%;
+      -ms-flex:1 1 100%;
+          flex:1 1 100%;
 }
 
 .ff-items {
   margin: 0px auto;
   padding-top: 20px;
-  flex:1 1 100%;
+  padding-left: 0;
+  -webkit-flex:1 1 100%;
+      -ms-flex:1 1 100%;
+          flex:1 1 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow:column nowrap;
+  -webkit-flex-flow:column nowrap;
+      -ms-flex-flow:column nowrap;
+          flex-flow:column nowrap;
 }
 
 .ff-items li{
@@ -236,19 +253,53 @@ ALPHA PLUGIN
   list-style: none;
   line-height: 30px;
   border-top: 1px solid #CCC;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow:row wrap;
+  -webkit-flex-flow:row wrap;
+      -ms-flex-flow:row wrap;
+          flex-flow:row wrap;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .ff-items li span {
   padding: 0 10px;
-  flex:0 1 200px;
+  -webkit-flex:0 1 200px;
+      -ms-flex:0 1 200px;
+          flex:0 1 200px;
+  border-right: 1px solid #CCC;
 }
+.ff-items li span:first-child {
+  border-left:1px solid #CCC;
+}
+
 .ff-items li span.tel {
-  flex:0 1 100px;
+  -webkit-flex:0 1 100px;
+      -ms-flex:0 1 100px;
+          flex:0 1 100px;
 }
 .ff-items li span.mail {
-  flex:0 1 250px;
+  -webkit-flex:0 1 250px;
+      -ms-flex:0 1 250px;
+          flex:0 1 250px;
+}
+.ff-items li span.site {
+  -webkit-flex:0 1 100px;
+      -ms-flex:0 1 100px;
+          flex:0 1 100px;
+}
+.ff-items li span.web {
+  -webkit-flex:1 1 100px;
+      -ms-flex:1 1 100px;
+          flex:1 1 100px;
+}
+
+.ff-items li span:last-child {
+  -webkit-flex:1 1 100px;
+      -ms-flex:1 1 100px;
+          flex:1 1 100px;
 }
 
 .ff-container input.ff-selector-type-all:checked ~ .ff-items li{
