@@ -13,6 +13,11 @@
 *   http://www.opensource.org/licenses/mit-license.php
 *   http://www.gnu.org/licenses/gpl.html
 *
+*
+*  UPDATE 062015
+*  P.VERT pôle web OMP Toulouse
+*  addClass/removeClass replace .hide() & .show() to avoid style html attribute
+* 
 */
 
 (function($) {
@@ -165,26 +170,22 @@
 					var letter = $(this).attr('class').split(' ')[0];
 
 					if (letter == 'all') {
-						//$list.children().show();
 						$list.children().addClass("selected");
-						//$list.children('.ln-no-match').hide();
 						$list.children('.ln-no-match').removeClass("selected");
 						isAll = true;
 					} else {
 						if (isAll) {
-							//$list.children().hide();
 							$list.children().removeClass("selected");
 							isAll = false;
-						} else if (prevLetter != '') $list.children('.ln-' + prevLetter).removeClass("selected");//$list.children('.ln-' + prevLetter).hide();
+						} else if (prevLetter != '') $list.children('.ln-' + prevLetter).removeClass("selected");
 
 						var count = getLetterCount(this);
 						if (count > 0) {
-							//$list.children('.ln-no-match').hide(); // in case it's showing
-							$list.children('.ln-no-match').removeClass("selected"); //.hide();
-							//$list.children('.ln-' + letter).show();
+							$list.children('.ln-no-match').hide();  // in case it's showing
+							//$list.children('.ln-' + letter).siblings.addClass("unselected");
 							$list.children('.ln-' + letter).addClass("selected");
 						}
-						else $list.children('.ln-no-match').addClass("selected");//.show();
+						else $list.children('.ln-no-match').show();//.addClass("selected");
 
 						prevLetter = letter;
 					}

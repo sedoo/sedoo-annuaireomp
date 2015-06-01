@@ -11,16 +11,14 @@
 <link href="css/annuaire.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
 <script src="js/jquery.min.js" type="text/javascript"></script>
-<!--<script type="text/javascript" src="js/ajax.js"></script>   -->
-<script src="js/jquery.listnav-2.1.js" type="text/javascript"></script>
-<script type="text/javascript">
+<!--<script src="js/jquery.listnav-2.1-OMP.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
 $(function(){
-	$('#group').listnav({
-	noMatchText: 'Aucune entrée pour cette lettre.',
-	includeNums: false 
-	});
+$('#group').listnav({
+noMatchText: 'Aucune entrée pour cette lettre.',
+includeNums: false 
 });
-</script>
-
+});
+</script>-->
 </head>
 <body>

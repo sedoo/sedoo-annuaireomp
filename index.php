@@ -1,15 +1,9 @@
 <?php
 include("header.php");
 
-//$q=$_GET["q"];
-
-//$name_file="annuaire_telephonique_OMP";
 $name_file="listeWithPageProfil";
 $ext_file=".csv";
 $annuaire="".$name_file."".$ext_file."";
-//$pageProfil="false";
-
-//$dir="../annuaire-".$labo."";
 $file_annuaire="".$annuaire."";
 
 $acronymGroup = array(
@@ -34,30 +28,30 @@ include ("form-search.php");
     <label for="select-type-all" class="ff-label-type-all">All</label>-->
     
     <input id="select-type-cesbio" name="radio-set-1" type="radio" class="ff-selector-type-cesbio" />
-    <label for="select-type-cesbio" class="ff-label-type-cesbio">CESBIO</label>
+    <label for="select-type-cesbio" class="ff-label-type-cesbio" title="<?php echo "$name_labo[CESBIO]";?>">CESBIO</label>
     
     <input id="select-type-ecolab" name="radio-set-1" type="radio" class="ff-selector-type-ecolab" />
-    <label for="select-type-ecolab" class="ff-label-type-ecolab">ECOLAB</label>
+    <label for="select-type-ecolab" class="ff-label-type-ecolab" title="<?php echo "$name_labo[ECOLAB]";?>">ECOLAB</label>
 
     <input id="select-type-irap" name="radio-set-1" type="radio" class="ff-selector-type-irap" />
-    <label for="select-type-irap" class="ff-label-type-irap">IRAP</label>
+    <label for="select-type-irap" class="ff-label-type-irap" title="<?php echo "$name_labo[IRAP]";?>">IRAP</label>
 
     <input id="select-type-get" name="radio-set-1" type="radio" class="ff-selector-type-get" />
-    <label for="select-type-get" class="ff-label-type-get">GET</label>
+    <label for="select-type-get" class="ff-label-type-get" title="<?php echo "$name_labo[GET]";?>">GET</label>
     
     <input id="select-type-aerologie" name="radio-set-1" type="radio" class="ff-selector-type-aerologie" />
-    <label for="select-type-aerologie" class="ff-label-type-aerologie">AEROLOGIE</label>
+    <label for="select-type-aerologie" class="ff-label-type-aerologie" title="<?php echo "$name_labo[LA]";?>">AEROLOGIE</label>
 
     <input id="select-type-legos" name="radio-set-1" type="radio" class="ff-selector-type-legos" />
-    <label for="select-type-legos" class="ff-label-type-legos">LEGOS</label>
+    <label for="select-type-legos" class="ff-label-type-legos" title="<?php echo "$name_labo[LEGOS]";?>">LEGOS</label>
 
     <input id="select-type-tbl" name="radio-set-1" type="radio" class="ff-selector-type-tbl" />
-    <label for="select-type-tbl" class="ff-label-type-tbl">TBL</label>
+    <label for="select-type-tbl" class="ff-label-type-tbl" title="<?php echo "$name_labo[TBL]";?>">TBL</label>
 
     <input id="select-type-ums" name="radio-set-1" type="radio" class="ff-selector-type-ums" />
-    <label for="select-type-ums" class="ff-label-type-ums">UMS</label>
+    <label for="select-type-ums" class="ff-label-type-ums" title="<?php echo "$name_labo[UMS831]";?>">UMS</label>
 
-    <!--<div id="group-nav" class="listNav"></div> liste alpha -->
+    <div id="group-nav" class="listNav"></div> <!--liste alpha -->
 
     <ul id="group" class="ff-items list">
 

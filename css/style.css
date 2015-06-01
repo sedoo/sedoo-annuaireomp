@@ -432,7 +432,8 @@ label.ff-label-type-info {
 .ff-container input.ff-selector-type-aerologie:checked ~ .ff-items .ff-item-type-aerologie,
 .ff-container input.ff-selector-type-legos:checked ~ .ff-items .ff-item-type-legos,
 .ff-container input.ff-selector-type-tbl:checked ~ .ff-items .ff-item-type-tbl,
-.ff-container input.ff-selector-type-ums:checked ~ .ff-items .ff-item-type-ums
+.ff-container input.ff-selector-type-ums:checked ~ .ff-items .ff-item-type-ums,
+.ff-items li[class^="ff-item-type-"].selected
 {
   display: -webkit-flex;
   display: -ms-flexbox;

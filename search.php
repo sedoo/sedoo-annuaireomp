@@ -19,6 +19,7 @@ $acronymGroup = array(
 include ("parametres.php");
 
 $searchUser=strtoupper($_POST['searchUser']);
+
 ?>
 
 <h1> Résultat de la recherche pour :<small> <?php echo "".$searchUser."";?></small></h1>

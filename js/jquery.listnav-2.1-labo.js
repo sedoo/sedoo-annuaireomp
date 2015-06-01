@@ -13,6 +13,11 @@
 *   http://www.opensource.org/licenses/mit-license.php
 *   http://www.gnu.org/licenses/gpl.html
 *
+*
+*  UPDATE 062015
+*  P.VERT pôle web OMP Toulouse
+*  addClass/removeClass replace .hide() & .show() to avoid style html attribute
+* 
 */
 
 (function($) {
@@ -180,11 +185,11 @@
 						var count = getLetterCount(this);
 						if (count > 0) {
 							//$list.children('.ln-no-match').hide(); // in case it's showing
-							$list.children('.ln-no-match').removeClass("selected"); //.hide();
+							$list.children('.ln-no-match').hide();
 							//$list.children('.ln-' + letter).show();
 							$list.children('.ln-' + letter).addClass("selected");
 						}
-						else $list.children('.ln-no-match').addClass("selected");//.show();
+						else $list.children('.ln-no-match').show();
 
 						prevLetter = letter;
 					}
