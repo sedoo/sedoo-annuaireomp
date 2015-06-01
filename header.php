@@ -8,7 +8,7 @@
 
     <title>Annuaire</title>
 
-
+<link href="css/annuaire.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
 <script src="js/jquery.min.js" language="javascript" type="text/javascript"></script>
 <!--<script type="text/javascript" src="js/ajax.js"></script>   -->

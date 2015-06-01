@@ -2,3 +2,7 @@
 archives/
 
 *.csv
+
+*.zip
+
+fontello-*/

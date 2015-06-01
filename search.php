@@ -1,9 +1,5 @@
 <?php
 include("header.php");
-
-//$q=$_GET["q"];
-
-//$name_file="annuaire_telephonique_OMP";
 $name_file="listeWithPageProfil";
 $ext_file=".csv";
 $annuaire="".$name_file."".$ext_file."";
@@ -22,47 +18,19 @@ $acronymGroup = array(
 );
 include ("parametres.php");
 
-
+$searchUser=strtoupper($_POST['searchUser']);
 ?>
+
+<h1> Résultat de la recherche pour :<small> <?php echo "".$searchUser."";?></small></h1>
+
 <form method="post" action="search.php">
-<label for="searchUser">Chercher par le nom</label>
+<label for="searchUser">Nouvelle recherche</label>
 <input type="text" id="searchUser" placeholder="Saisir le nom de la personne" name="searchUser">
 <button type="submit"><span class="icon-search"></span>Ok</button>
 </form>
-<h2>Liste complète par laboratoire</h2>
-<p> Cliquez sur le laboratoire de votre choix</p>
 
-<section class="ff-container">
-    <!--<input id="select-type-all" name="radio-set-1" type="radio" class="ff-selector-type-all" checked="checked" />
-    <label for="select-type-all" class="ff-label-type-all">All</label>-->
-    
-    <input id="select-type-cesbio" name="radio-set-1" type="radio" class="ff-selector-type-cesbio" />
-    <label for="select-type-cesbio" class="ff-label-type-cesbio">CESBIO</label>
-    
-    <input id="select-type-ecolab" name="radio-set-1" type="radio" class="ff-selector-type-ecolab" />
-    <label for="select-type-ecolab" class="ff-label-type-ecolab">ECOLAB</label>
-
-    <input id="select-type-irap" name="radio-set-1" type="radio" class="ff-selector-type-irap" />
-    <label for="select-type-irap" class="ff-label-type-irap">IRAP</label>
-
-    <input id="select-type-get" name="radio-set-1" type="radio" class="ff-selector-type-get" />
-    <label for="select-type-get" class="ff-label-type-get">GET</label>
-    
-    <input id="select-type-aerologie" name="radio-set-1" type="radio" class="ff-selector-type-aerologie" />
-    <label for="select-type-aerologie" class="ff-label-type-aerologie">AEROLOGIE</label>
-
-    <input id="select-type-legos" name="radio-set-1" type="radio" class="ff-selector-type-legos" />
-    <label for="select-type-legos" class="ff-label-type-legos">LEGOS</label>
-
-    <input id="select-type-tbl" name="radio-set-1" type="radio" class="ff-selector-type-tbl" />
-    <label for="select-type-tbl" class="ff-label-type-tbl">TBL</label>
-
-    <input id="select-type-ums" name="radio-set-1" type="radio" class="ff-selector-type-ums" />
-    <label for="select-type-ums" class="ff-label-type-ums">UMS</label>
-
-    <!--<div id="group-nav" class="listNav"></div> liste alpha -->
-
-    <ul id="group" class="ff-items list">
+<section class="ff-container-search">
+<ul id="group" class="list">
 
         <?php
         $i=0;
@@ -83,7 +51,7 @@ include ("parametres.php");
             if (array_key_exists (8, $data)){$equipe=explode(",",$data[8]);}
             if (array_key_exists (10, $data)){$pageProfil=$data[10];}
 
-            if ($i > 0)
+            if ($nom===$searchUser)
             {
             ///// remplacement DE TOUS LES ESPACES par des "-" sur NOM PRENOM
             $nom_url=str_replace(" ", "-", $nom);
@@ -158,56 +126,52 @@ include ("parametres.php");
                 }
 
                 echo "<li class=\"ff-item-type-".$classe."\">";
-                echo "<span>".$nom." ".$prenom."</span>";
-                echo "<span class=\"tel\"><span class=\"icon-phone\"></span> ";
+                echo "<h2 class=\"".$classe."\">".$nom." ".$prenom." <small>".$labo."</small></h2>";
+                echo "<div class=\"more\">";
+                echo "<p class=\"tel\"><span class=\"icon-phone\"></span> ";
                     foreach ($tel as $telValue)
                     {
                         echo "".$telValue." ";
                     }
-                echo "</span>";
-                echo "<span class=\"mail\"><span class=\"icon-mail-alt\"></span> ".$mail[0]."<i class=\"hide\">NO SPAM -- FILTER</i>@";
+                echo "</p>";
+                echo "<p class=\"mail\"><span class=\"icon-mail-alt\"></span> ".$mail[0]."<i class=\"hide\">NO SPAM -- FILTER</i>@";
                 // Vérification que l'adresse mail ne soit pas no_mail@, clé 1 (domaine) non déclarée
                 if (array_key_exists (1, $mail))
                     {
                     echo "<i class=\"hide\">NO SPAM -- FILTER</i>".$mail[1]."";
                     }
-                echo "</span>";
-                echo "<input id=\"select-type-info".$i."\" name=\"radio-set-info\" type=\"radio\" class=\"ff-selector-type-info\" />
-                <label for=\"select-type-info".$i."\" class=\"ff-label-type-info\"><span class=\"icon-plus\"></span></label>";
-                echo "<div class=\"more\">";
-                    echo "<div>";
-                    echo "<span class=\"equipe\"><strong><span class=\"icon-group\"></span> Equipe :</strong>";
-                        foreach ($equipe as $equipeValue)
-                        {
-                            echo " ".$equipeValue."<br>";
-                        }
-                    echo "</span>";
-                    echo "<span class=\"bureau\">";
-                        foreach ($bureau as $bureauValue)
-                        {
-                            echo "<strong><span class=\"icon-location\"></span> Bureau :</strong> ".$bureauValue."<br>";
-                        }
-                    echo "</span>";
-                    echo "<span class=\"site\"><strong><span class=\"icon-location\"></span> Site :</strong> ".$site."</span>";
-                    echo "</div><div>";
-                    if ((strcmp($pageProfil, "true")) > 0)
+                echo "</p>";
+
+                echo "<p class=\"equipe\"><strong><span class=\"icon-group\"></span> Equipe :</strong>";
+                    foreach ($equipe as $equipeValue)
                     {
-                    echo "<a href=\"".$url_profil."\" target=\"_blank\">
-                        Visitez la page profil</a>";            
+                        echo " ".$equipeValue."<br>";
                     }
-                    echo "</div>";
+                echo "</p>";
+                echo "<p class=\"bureau\">";
+                    foreach ($bureau as $bureauValue)
+                    {
+                        echo "<strong><span class=\"icon-location\"></span> Bureau :</strong> ".$bureauValue."<br>";
+                    }
+                echo "</p>";
+                echo "<p class=\"site\"><strong><span class=\"icon-location\"></span> Site :</strong> ".$site."</p>";
+                if ((strcmp($pageProfil, "true")) > 0)
+                {
+                echo "<p><a href=\"".$url_profil."\" target=\"_blank\" class=\"".$classe."\">
+                    Visitez la page profil</a></p>";            
+                }
                 echo "</div>";
                 echo "</li>"; 
-                
+            $i++;    
             }       //end if $i>0
-            $i++;
+            
         }           //end while
+        echo "$i";
+        if ($i==="0") {
+        	echo "<blockquote><h2>Désolé, pas de résultat pour la recherche ".$searchUser."</h2></blokquote>";
+        }
 
         ?>
     </ul>
 
 </section>
-<!--/**/
--->
-</body>
-</html>
