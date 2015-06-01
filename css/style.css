@@ -47,7 +47,7 @@ body {
   font-size: 1.4em;
   background-color: #ffffff;
   color: #000000;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 1.5;
 }
 a {
@@ -84,12 +84,13 @@ label {
 h1,
 .h1-like {
   font-size: 3.2rem;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  padding:5px 10px;
 }
 h2,
 .h2-like {
   font-size: 2.8rem;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 h3,
 .h3-like {
@@ -153,16 +154,60 @@ sup {
   LAYOUT
 -----------------------------------*/
 
+nav {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content:flex-start;
+      -ms-flex-pack:start;
+          justify-content:flex-start;
+}
+
+nav form {
+  -webkit-flex:0 1 330px;
+      -ms-flex:0 1 330px;
+          flex:0 1 330px;
+    margin-right:20px;
+}
+
+nav > a {
+  display: block;
+  padding:1em;
+  margin:1em;
+  border:1px solid #CCC;
+  text-align: center;
+  text-decoration: none;
+  font-size:1.2em;
+  flex:1 1 100px;
+}
+
+nav > div+a,
+nav form+a,
+nav form+a+a {
+  flex:1 1 100px;
+  padding:.5em;
+  margin:0;
+}
+
 /************************
 ALPHA PLUGIN
 *************************/
+
+.listNav {
+  -webkit-flex:1 1 auto;
+      -ms-flex:1 1 auto;
+          flex:1 1 auto;
+}
+
 [id="group-nav"] {
   padding-left:5px;
   position: relative;
 }
 
 /* Listing alphabétique (jquery)*/
-.listNav { margin:20px 0 10px; }
 .ln-letters { overflow:hidden;}
 .ln-letters a { font-size:0.9em; display:block; float:left; padding:2px 6px; border:1px solid silver; border-right:none; text-decoration:none; color;#0C64A0;}
 .ln-letters a.ln-last { border-right:1px solid silver; }
@@ -170,13 +215,13 @@ ALPHA PLUGIN
 .ln-letters a.ln-selected { background-color:#DDDDDD;/*#eaeaea;*/ }
 .ln-letters a.ln-disabled { color:#ccc; }
 .ln-letter-count { 
-  display: none !important;/*
+  /*display: none !important;*/
   text-align:center; 
   font-size:0.8em; 
   line-height:1; 
   margin-bottom:3px; 
   color:#336699; 
-  margin-top:5px;*/
+  margin-top:5px;
 }
 /************************/
 
@@ -259,15 +304,8 @@ button {
   display: none;
 }
 
-.listNav {
-  -webkit-flex:1 1 100%;
-      -ms-flex:1 1 100%;
-          flex:1 1 100%;
-}
-
 .ff-items {
-  margin: 0px auto;
-  padding-top: 20px;
+  margin: 20px auto;
   padding-left: 0;
   -webkit-flex:1 1 100%;
       -ms-flex:1 1 100%;
@@ -278,6 +316,7 @@ button {
   -webkit-flex-flow:column nowrap;
       -ms-flex-flow:column nowrap;
           flex-flow:column nowrap;
+  border-top: 1px solid #CCC;
 }
 
 .ff-items li{
@@ -286,18 +325,9 @@ button {
   min-height: 30px;
   list-style: none;
   line-height: 30px;
-  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
   border-left: 1px solid #CCC;
   border-right: 1px solid #CCC;
-/*  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow:row wrap;
-      -ms-flex-flow:row wrap;
-          flex-flow:row wrap;
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;*/
   display: none;
 }
 
@@ -360,17 +390,27 @@ button {
 
 label.ff-label-type-info {
   font-size: 1em;
-  flex:0 1 50px;
+  -webkit-flex:0 1 50px;
+      -ms-flex:0 1 50px;
+          flex:0 1 50px;
 }
 
 .ff-container input.ff-selector-type-info + label + div {
   display: none;
 }
 .ff-container input.ff-selector-type-info:checked + label + div {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow:row wrap;
-  justify-content:flex-start;
-  align-items: center;
+  -webkit-flex-flow:row wrap;
+      -ms-flex-flow:row wrap;
+          flex-flow:row wrap;
+  -webkit-justify-content:flex-start;
+      -ms-flex-pack:start;
+          justify-content:flex-start;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width:100%;
   padding: 10px;
   margin:10px;
@@ -475,40 +515,49 @@ label.ff-label-type-info {
 .ff-container-search .ff-item-type-aerologie div,
 .ff-container-search .ff-item-type-legos div,
 .ff-container-search .ff-item-type-tbl div,
-.ff-container-search .ff-item-type-ums div
- {
-  border-left:5px solid;
+.ff-container-search .ff-item-type-ums div,
+[class^="br-"] {
+  border-left:7px solid;
 }
+
 .ff-item-type-cesbio input.ff-selector-type-info:checked + label + div,
-.ff-container-search .ff-item-type-cesbio div {
+.ff-container-search .ff-item-type-cesbio div,
+.br-cesbio {
   border-color: #B6CC49;
 }
 .ff-item-type-ecolab input.ff-selector-type-info:checked + label + div,
-.ff-container-search .ff-item-type-ecolab div {
+.ff-container-search .ff-item-type-ecolab div,
+.br-ecolab {
   border-color: #7DBF3B;
 }
 .ff-item-type-irap input.ff-selector-type-info:checked + label + div,
-.ff-container-search .ff-item-type-irap div {
+.ff-container-search .ff-item-type-irap div,
+.br-irap {
   border-color: #2D4F59;
 }
 .ff-item-type-get input.ff-selector-type-info:checked + label + div,
-.ff-container-search .ff-item-type-get div {
+.ff-container-search .ff-item-type-get div,
+.br-get {
   border-color: #DD9946;
 }
 .ff-item-type-aerologie input.ff-selector-type-info:checked + label + div,
-.ff-container-search .ff-item-type-aerologie div {
+.ff-container-search .ff-item-type-aerologie div,
+.br-aerologie {
   border-color: #90BCD1;
 }
 .ff-item-type-legos input.ff-selector-type-info:checked + label + div,
-.ff-container-search .ff-item-type-legos div {
+.ff-container-search .ff-item-type-legos div,
+.br-legos {
   border-color: #1F7E9E;
 }
 .ff-item-type-tbl input.ff-selector-type-info:checked + label + div,
-.ff-container-search .ff-item-type-tbl div {
+.ff-container-search .ff-item-type-tbl div,
+.br-tbl {
   border-color: #2D4F59;
 }
 .ff-item-type-ums input.ff-selector-type-info:checked + label + div,
-.ff-container-search .ff-item-type-ums div {
+.ff-container-search .ff-item-type-ums div,
+.br-ums {
   border-color: #696867;
 }
 

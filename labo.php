@@ -5,33 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="P.VERT | Pôle web service communication OMP">
-
-    <title>Annuaire</title>
-
-<link href="css/annuaire.css" rel="stylesheet" />
-<link href="css/style.css" rel="stylesheet" />
 <?php
 
 $q=$_GET["q"];
-echo "<link href=\"".$q.".css\" rel=\"stylesheet\" />";
-?>
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/jquery.listnav-2.1-labo.js" type="text/javascript"></script>
-<script type="text/javascript" charset="utf-8">
-$(function(){
-$('#group').listnav({
-noMatchText: 'Aucune entrée pour cette lettre.',
-includeNums: false 
-});
-});
-</script>
-
-</head>
-<body>
-
-<?php
-
-//$name_file="annuaire_telephonique_OMP";
 $name_file="listeWithPageProfil";
 $ext_file=".csv";
 $annuaire="".$name_file."".$ext_file."";
@@ -50,16 +26,43 @@ $acronymGroup = array(
 );
 include ("parametres.php");
 ?>
+    <title>Annuaire <?php echo "$name_labo[$q]";?></title>
 
+<link href="css/annuaire.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<?php
 
-<h2>Annuaire <?php echo "$name_labo[$q]";?></h2>
+echo "<link href=\"".$q.".css\" rel=\"stylesheet\" />";
+?>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.listnav-2.1-labo.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+$(function(){
+$('#group').listnav({
+noMatchText: 'Aucune entrée pour cette lettre.',
+includeNums: false 
+});
+});
+</script>
 
+</head>
+<body>
+
+<?php
+$qLower=strtolower($q);
+
+echo "<h1 class=\"br-".$qLower."\">Annuaire ".$name_labo[$q]."</h1>";
+?>
+<nav>
 <?php
 include ("form-search-labo.php");
 ?>
+<div id="group-nav" class="listNav"></div>
+<a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span> Cherchez dans un autre labo</a>
+</nav>
 
 <section class="ff-container">
-    <div id="group-nav" class="listNav"></div><!--liste alpha -->
+    
 
     <ul id="group" class="ff-items list">
 

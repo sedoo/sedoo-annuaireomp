@@ -23,9 +23,15 @@ $searchLabo=$_POST['searchLabo'];
 ?>
 
 <h1> Résultat de la recherche pour :<small> <?php echo "".$searchUser."";?></small></h1>
-<?php
-include ("form-search-labo.php");
-?>
+<nav>
+    <?php
+    include ("form-search-labo.php");
+    ?>
+    <a href="labo.php?q=<?php echo"".$searchValue."" ?>" title="revenir à la liste alphabétique">
+       <span class="icon-search"></span> Liste alphabétique A-Z</a>
+    <a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span> Cherchez dans un autre labo</a>
+
+</nav>
 
 <section class="ff-container-search">
 <ul id="group" class="list">
