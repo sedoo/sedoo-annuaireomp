@@ -22,13 +22,10 @@ $acronymGroup = array(
 );
 include ("parametres.php");
 
-
+include ("form-search.php");
 ?>
-<form method="post" action="search.php">
-<label for="searchUser">Chercher par le nom</label>
-<input type="text" id="searchUser" placeholder="Saisir le nom de la personne" name="searchUser">
-<button type="submit"><span class="icon-search"></span>Ok</button>
-</form>
+
+
 <h2>Liste complète par laboratoire</h2>
 <p> Cliquez sur le laboratoire de votre choix</p>
 

@@ -22,12 +22,9 @@ $searchUser=strtoupper($_POST['searchUser']);
 ?>
 
 <h1> Résultat de la recherche pour :<small> <?php echo "".$searchUser."";?></small></h1>
-
-<form method="post" action="search.php">
-<label for="searchUser">Nouvelle recherche</label>
-<input type="text" id="searchUser" placeholder="Saisir le nom de la personne" name="searchUser">
-<button type="submit"><span class="icon-search"></span>Ok</button>
-</form>
+<?php
+include ("form-search.php");
+?>
 
 <section class="ff-container-search">
 <ul id="group" class="list">
@@ -166,12 +163,14 @@ $searchUser=strtoupper($_POST['searchUser']);
             }       //end if $i>0
             
         }           //end while
-        echo "$i";
-        if ($i==="0") {
-        	echo "<blockquote><h2>Désolé, pas de résultat pour la recherche ".$searchUser."</h2></blokquote>";
-        }
+
 
         ?>
     </ul>
 
+    <?php 
+        if ($i=="0") {
+        	echo "<blockquote><h2>Désolé, pas de résultat pour la recherche ".$searchUser."</h2></blockquote>";
+        }
+    ?>
 </section>
