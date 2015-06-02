@@ -51,14 +51,16 @@ includeNums: false
 <?php
 $qLower=strtolower($q);
 
-echo "<h1 class=\"br-".$qLower."\">Annuaire ".$name_labo[$q]."</h1>";
+echo "<h1 class=\"br-".$qLower."\"><span class=\"icon-phone\"></span> ".$name_labo[$q]."</h1>";
 ?>
 <nav>
 <?php
 include ("form-search-labo.php");
 ?>
 <div id="group-nav" class="listNav"></div>
-<a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span> Cherchez dans un autre labo</a>
+<div role="annuaireOMP">
+    <a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span>Annuaire OMP</a>
+</div>
 </nav>
 
 <section class="ff-container">

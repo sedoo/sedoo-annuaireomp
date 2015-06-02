@@ -22,14 +22,14 @@ $searchUser=strtoupper($_POST['searchUser']);
 $searchLabo=$_POST['searchLabo'];
 ?>
 
-<h1> Résultat de la recherche pour :<small> <?php echo "".$searchUser."";?></small></h1>
-<nav>
+<h1>Résultat de la recherche pour :<small> <?php echo "".$searchUser."";?></small></h1>
+<nav role="searchLabo">
     <?php
     include ("form-search-labo.php");
     ?>
     <a href="labo.php?q=<?php echo"".$searchValue."" ?>" title="revenir à la liste alphabétique">
-       <span class="icon-search"></span> Liste alphabétique A-Z</a>
-    <a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span> Cherchez dans un autre labo</a>
+       <span class="icon-search"></span> A-Z</a>
+    <a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span> OMP</a>
 
 </nav>
 

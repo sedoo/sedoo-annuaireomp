@@ -83,26 +83,26 @@ label {
 
 h1,
 .h1-like {
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   padding:5px 10px;
 }
 h2,
 .h2-like {
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 h3,
 .h3-like {
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 h4,
 .h4-like {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 h5,
 .h5-like {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 h6,
 .h6-like {
@@ -171,25 +171,93 @@ nav form {
       -ms-flex:0 1 330px;
           flex:0 1 330px;
     margin-right:20px;
+    margin-bottom:20px;
+}
+nav[role="searchLabo"] form {
+  margin-bottom: 0;
+  flex:0 1 350px;
+}
+
+
+nav > div[role="annuaireOMP"] > a {
+  display: block;
+  padding:.15em;
+  border:1px solid #CCC;
+  text-align: center;
+  text-decoration: none;
+  font-size:0.9em;
 }
 
 nav > a {
   display: block;
-  padding:1em;
-  margin:1em;
+  padding:10px;
+  margin:10px;
   border:1px solid #CCC;
   text-align: center;
   text-decoration: none;
-  font-size:1.2em;
-  flex:1 1 100px;
+  -webkit-flex:1 1 150px;
+      -ms-flex:1 1 150px;
+          flex:1 1 150px;
+  font-size: 1.2em;
+  position: relative;
 }
 
-nav > div+a,
-nav form+a,
-nav form+a+a {
-  flex:1 1 100px;
-  padding:.5em;
+nav[role="annuaireIndex"] > a > span {
+  position: absolute;
+  top:-1000px;
+  z-index:2;
+  background: #222;
+  color: #FFF;
+  font-size:.9em;
+  left: -15px;
+  right: -15px;
+  padding:15px;
+  opacity: 0;
+  transition:all .5s ease-in-out, opacity 1s ease-in-out;
+  /*transition:opacity 1s ease-in-out;*/
+}
+
+nav[role="annuaireIndex"] > a:hover > span {
+  top:-15px;
+  opacity: 1;
+}
+
+nav[role="searchOMP"] > a {
   margin:0;
+  padding:0;
+  flex:0 1 250px;
+}
+
+nav[role="searchLabo"] > a {
+  margin:0 10px;
+  padding:0 10px;
+  flex:0 1 100px;
+}
+
+div[role="annuaireOMP"]{
+  -webkit-flex:1 0 120px;
+      -ms-flex:1 0 120px;
+          flex:1 0 120px;
+  padding:0;
+  margin:0;
+}
+
+@media (max-width: 635px) {
+  nav[role="searchOMP"] > a {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 625px) {
+  nav[role="searchLabo"] > a:nth-child(3) {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 505px) {
+  nav[role="searchLabo"] > a:nth-child(2) {
+    margin-top: 15px;
+  }
 }
 
 /************************
@@ -203,8 +271,8 @@ ALPHA PLUGIN
 }
 
 [id="group-nav"] {
-  padding-left:5px;
   position: relative;
+  margin:0 10px 20px 0px;
 }
 
 /* Listing alphabétique (jquery)*/

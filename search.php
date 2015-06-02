@@ -23,10 +23,12 @@ $searchUser=strtoupper($_POST['searchUser']);
 ?>
 
 <h1> Résultat de la recherche pour :<small> <?php echo "".$searchUser."";?></small></h1>
-<?php
-include ("form-search.php");
-?>
-
+<nav role="searchOMP">
+	<?php
+	include ("form-search.php");
+	?>
+	<a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span> Rechercher par laboratoire</a>
+</nav>
 <section class="ff-container-search">
 <ul id="group" class="list">
 
