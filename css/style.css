@@ -176,7 +176,9 @@ nav form {
 nav[role="searchLabo"] form,
 nav[role="searchOMP"] form {
   margin-bottom: 0;
-  flex:0 1 350px;
+  -webkit-flex:0 1 350px;
+      -ms-flex:0 1 350px;
+          flex:0 1 350px;
 }
 
 
@@ -227,13 +229,17 @@ nav[role="annuaireIndex"] > a:hover > span {
 nav[role="searchOMP"] > a {
   margin:0;
   padding:0;
-  flex:0 1 250px;
+  -webkit-flex:0 1 250px;
+      -ms-flex:0 1 250px;
+          flex:0 1 250px;
 }
 
 nav[role="searchLabo"] > a {
   margin:0 10px;
   padding:0 10px;
-  flex:0 1 100px;
+  -webkit-flex:0 1 100px;
+      -ms-flex:0 1 100px;
+          flex:0 1 100px;
 }
 
 div[role="annuaireOMP"]{
@@ -323,6 +329,12 @@ button {
 }
 .ff-container-search ul {
   padding: 0 2em;
+}
+
+@media (max-width:400px) {
+  .ff-container, 
+  .ff-container-search {margin:0;}
+  .ff-container-search ul {padding: 0;}
 }
 
 .ff-container-search h2 {
