@@ -50,6 +50,7 @@ includeNums: false
 
 <?php
 $qLower=strtolower($q);
+if ($qLower==="la") {$qLower="aerologie";}
 
 echo "<h1 class=\"br-".$qLower."\"><span class=\"icon-phone\"></span> ".$name_labo[$q]."</h1>";
 ?>
