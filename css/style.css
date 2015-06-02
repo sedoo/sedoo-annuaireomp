@@ -173,10 +173,12 @@ nav form {
     margin-right:20px;
     margin-bottom:20px;
 }
-nav[role="searchLabo"] form {
+nav[role="searchLabo"] form,
+nav[role="searchOMP"] form {
   margin-bottom: 0;
   flex:0 1 350px;
 }
+
 
 
 nav > div[role="annuaireOMP"] > a {
