@@ -59,7 +59,10 @@ include ("form-search-labo.php");
 ?>
 <div id="group-nav" class="listNav"></div>
 <div role="annuaireOMP">
-    <a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span>Annuaire OMP</a>
+    <a href="index.php" title="Cherchez dans un autre labo">
+        <span class="icon-search"></span>Annuaire OMP
+        <p>Chercher dans l'annuaire global de l'Observatoire Midi-Pyrénées</p>
+    </a>
 </div>
 </nav>
 

@@ -28,8 +28,13 @@ $searchLabo=$_POST['searchLabo'];
     include ("form-search-labo.php");
     ?>
     <a href="labo.php?q=<?php echo"".$searchValue."" ?>" title="revenir à la liste alphabétique">
-       <span class="icon-search"></span> A-Z</a>
-    <a href="index.php" title="Cherchez dans un autre labo"><span class="icon-search"></span> OMP</a>
+       <span class="icon-search"></span> A-Z
+       <p>Revenir à la liste alphabétique</p>
+    </a>
+    <a href="index.php" title="Cherchez dans un autre labo">
+        <span class="icon-search"></span> OMP
+        <p>Cherchez dans un autre labo</p>
+    </a>
 
 </nav>
 
@@ -37,7 +42,9 @@ $searchLabo=$_POST['searchLabo'];
 <ul id="group" class="list">
 
         <?php
-        $i=0;
+        $searchFromLabo=true;
+        include("searchResult.php");
+        /*$i=0;
         $file=fopen($file_annuaire, "r");
         while(!feof($file)) 
         {
@@ -130,7 +137,7 @@ $searchLabo=$_POST['searchLabo'];
                 }
 
                 echo "<li class=\"ff-item-type-".$classe."\">";
-                echo "<h2 class=\"".$classe."\">".$nom." ".$prenom." <small>".$labo."</small></h2>";
+                echo "<h2 class=\"br-".$classe."\">".$nom." ".$prenom." <small>".$labo."</small></h2>";
                 echo "<div class=\"more\">";
                 echo "<p class=\"tel\"><span class=\"icon-phone\"></span> ";
                     foreach ($tel as $telValue)
@@ -171,7 +178,7 @@ $searchLabo=$_POST['searchLabo'];
             
         }           //end while
 
-
+*/
         ?>
     </ul>
 

@@ -33,7 +33,9 @@ $searchUser=strtoupper($_POST['searchUser']);
 <ul id="group" class="list">
 
         <?php
-        $i=0;
+        include("searchResult.php");
+
+        /*$i=0;
         $file=fopen($file_annuaire, "r");
         while(!feof($file)) 
         {
@@ -125,8 +127,10 @@ $searchUser=strtoupper($_POST['searchUser']);
                     break;
                 }
 
-                echo "<li class=\"ff-item-type-".$classe."\">";
-                echo "<h2 class=\"".$classe."\">".$nom." ".$prenom." <small>".$labo."</small></h2>";
+                //echo "<li class=\"ff-item-type-".$classe."\">";
+                echo "<li class=\"br-".$classe."\">";
+               // echo "<h2 class=\"br-".$classe."\">".$nom." ".$prenom." <small>".$labo."</small></h2>";
+                echo "<h2>".$nom." ".$prenom." <small>".$labo."</small></h2>";
                 echo "<div class=\"more\">";
                 echo "<p class=\"tel\"><span class=\"icon-phone\"></span> ";
                     foreach ($tel as $telValue)
@@ -167,7 +171,7 @@ $searchUser=strtoupper($_POST['searchUser']);
             
         }           //end while
 
-
+*/
         ?>
     </ul>
 
