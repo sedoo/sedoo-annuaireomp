@@ -148,6 +148,27 @@ sup {
   font-size: smaller;
 }
 
+button {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-appearance: button; /* for input */
+    -webkit-user-select: none; /* for button */
+       -moz-user-select: none;
+        -ms-user-select: none;
+}
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+
 .hide {display: none;}
 
 /*---------------------------------
@@ -181,32 +202,33 @@ nav[role="searchOMP"] form {
           flex:0 1 350px;
 }
 
-
-
+nav > a,
 nav > div[role="annuaireOMP"] > a {
   display: block;
-  padding:.15em;
-  border:1px solid #CCC;
   text-align: center;
   text-decoration: none;
-  font-size:0.9em;
+  position: relative;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+nav > div[role="annuaireOMP"] > a {
+  padding:.15em; 
+  font-size:1em;
 }
 
 nav > a {
-  display: block;
   padding:10px;
   margin:10px;
-  border:1px solid #CCC;
-  text-align: center;
-  text-decoration: none;
-  -webkit-flex:1 1 150px;
-      -ms-flex:1 1 150px;
-          flex:1 1 150px;
+  -webkit-flex:0 1 180px;
+      -ms-flex:0 1 180px;
+          flex:0 1 180px;
   font-size: 1.2em;
-  position: relative;
 }
 
-nav[role="annuaireIndex"] > a > span {
+nav[role="annuaireIndex"] > a > span,
+nav[role="searchLabo"] > a > p,
+div[role="annuaireOMP"] > a > p {
   position: absolute;
   top:-1000px;
   z-index:2;
@@ -218,12 +240,22 @@ nav[role="annuaireIndex"] > a > span {
   padding:15px;
   opacity: 0;
   transition:all .5s ease-in-out, opacity 1s ease-in-out;
-  /*transition:opacity 1s ease-in-out;*/
 }
 
-nav[role="annuaireIndex"] > a:hover > span {
-  top:-15px;
+nav[role="annuaireIndex"] > a:hover > span,
+nav[role="searchLabo"] > a:hover > p,
+div[role="annuaireOMP"] > a:hover > p {
   opacity: 1;
+}
+
+nav[role="annuaireIndex"] > a:hover > span{
+  top:-15px;
+}
+nav[role="searchLabo"] > a:hover > p{
+  top:-50px;
+}
+div[role="annuaireOMP"] > a:hover > p{
+  top:-25px;
 }
 
 nav[role="searchOMP"] > a {
@@ -303,9 +335,12 @@ ALPHA PLUGIN
 
 
 button {
-  background: linear-gradient(#DDD, #FFF);
+
+  /*background: linear-gradient(#DDD, #FFF);*/
   padding:5px;
-  box-shadow: 0 0 0 rgba(0,0,0,.2);
+ /* box-shadow: 0 0 0 rgba(0,0,0,.2);*/
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .ff-container,
@@ -329,6 +364,9 @@ button {
 }
 .ff-container-search ul {
   padding: 0 2em;
+  display: flex;
+  flex-flow:row wrap;
+  justify-content:flex-start;
 }
 
 @media (max-width:400px) {
@@ -337,14 +375,31 @@ button {
   .ff-container-search ul {padding: 0;}
 }
 
+.ff-container-search li{
+  list-style: none;
+  flex:0 1 400px;
+  margin: 20px 40px 20px 0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+
 .ff-container-search h2 {
-  color:#FFF;
   padding:5px 10px;
   font-weight: normal;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   overflow: hidden;
+  background: #FEFEFE;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  width: 105%;
 }
-.ff-container-search h2 small {float:right;}
+.ff-container-search h2 small {
+    border-radius: 5px;
+    color: white;
+    float: right;
+    margin-top: 1px;
+    padding: 3px 8px;
+}
 
 .ff-container-search blockquote,
 .ff-container-search blockquote h2 {
@@ -413,11 +468,6 @@ button {
   display: none;
 }
 
-.ff-container-search li{
-  list-style: none;
-  width:100%;
-}
-
 .ff-items li:nth-child(odd) {
 
 }
@@ -426,7 +476,9 @@ button {
 }
 
 .ff-container-search div {
-  background:#F0F0F0;
+  /*background:#F0F0F0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.04);*/
   padding:20px;
 }
 
