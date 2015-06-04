@@ -107,7 +107,7 @@ while(!feof($file))
                         $classe = "cesbio"; 
                         if ((strcmp($pageProfil, "true")) > 0)
                         {
-                            $url_profil=$url_labo[CESBIO]."profils/".$nom_url."_".$prenom_url;
+                            $url_profil=$url_labo['CESBIO']."profils/".$nom_url."_".$prenom_url;
                         }                   
                     break;
                     //////////////////////////////////////////////////////////////////////////
@@ -115,7 +115,7 @@ while(!feof($file))
                         $classe = "ecolab";  
                         if ((strcmp($pageProfil, "true")) > 0)
                         {
-                            $url_profil=$url_labo[ECOLAB]."profils/".$nom_url."_".$prenom_url;
+                            $url_profil=$url_labo['ECOLAB']."profils/".$nom_url."_".$prenom_url;
                         }          
                     break;
                     //////////////////////////////////////////////////////////////////////////
@@ -123,7 +123,7 @@ while(!feof($file))
                         $classe = "irap"; 
                         if ((strcmp($pageProfil, "true")) > 0)
                         {
-                            $url_profil=$url_labo[IRAP]."profils/".$nom_url."_".$prenom_url;
+                            $url_profil=$url_labo['IRAP']."profils/".$nom_url."_".$prenom_url;
                         } 
                     break;
                     //////////////////////////////////////////////////////////////////////////
@@ -137,7 +137,7 @@ while(!feof($file))
                             }
                             else
                             {
-                            $url_profil=$url_labo[GET]."profils/".$nom_url."_".$prenom_url;
+                            $url_profil=$url_labo['GET']."profils/".$nom_url."_".$prenom_url;
                             }
                         }
                     break;
@@ -146,13 +146,13 @@ while(!feof($file))
                         $classe = "aerologie";
                         if ((strcmp($pageProfil, "true")) > 0)
                         {
-                            $url_profil=$url_labo[LA]."profils/".$nom_url."_".$prenom_url;
+                            $url_profil=$url_labo['LA']."profils/".$nom_url."_".$prenom_url;
                         }                   
                     break;
                     //////////////////////////////////////////////////////////////////////////
                     case "LEGOS":
                         $classe = "legos";   
-                        $url_profil=$url_labo[LEGOS].$nom_url;
+                        $url_profil=$url_labo['LEGOS'].$nom_url;
                     break;
                     //////////////////////////////////////////////////////////////////////////
                     case "TBL":
@@ -164,7 +164,7 @@ while(!feof($file))
                         $classe = "ums";  
                         if ((strcmp($pageProfil, "true")) > 0)
                         {
-                            $url_profil=$url_labo[UMS831]."profils/".$nom_url."_".$prenom_url;
+                            $url_profil=$url_labo['UMS831']."profils/".$nom_url."_".$prenom_url;
                         }          
                     break;
                 }
