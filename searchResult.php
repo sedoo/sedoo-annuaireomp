@@ -17,9 +17,7 @@ while(!feof($file))
     if (array_key_exists (8, $data)){$equipe=explode(",",$data[8]);}
     if (array_key_exists (10, $data)){$pageProfil=$data[10];}
 
-
-    //
-            
+          
     switch ($searchFromLabo) {
         case "true":
             if (($nom===$searchUser)&&($labo===$searchLabo)) {
