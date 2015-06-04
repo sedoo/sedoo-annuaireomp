@@ -6,3 +6,5 @@ archives/
 *.zip
 
 fontello-*/
+
+*.csv#
