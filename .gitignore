@@ -8,3 +8,7 @@ archives/
 fontello-*/
 
 *.csv#
+
+*.TXT
+
+*.exe
