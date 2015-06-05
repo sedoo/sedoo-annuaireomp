@@ -9,7 +9,7 @@ $prenom_url=str_replace(" ", "-", $prenom);
             $classe = "cesbio"; 
             if ((strcmp($pageProfil, "true")) > 0)
             {
-                $url_profil=$url_labo[CESBIO]."profils/".$nom_url."_".$prenom_url;
+                $url_profil=$url_labo['CESBIO']."profils/".$nom_url."_".$prenom_url;
             }                   
         break;
         //////////////////////////////////////////////////////////////////////////
@@ -17,7 +17,7 @@ $prenom_url=str_replace(" ", "-", $prenom);
             $classe = "ecolab";  
             if ((strcmp($pageProfil, "true")) > 0)
             {
-                $url_profil=$url_labo[ECOLAB]."profils/".$nom_url."_".$prenom_url;
+                $url_profil=$url_labo['ECOLAB']."profils/".$nom_url."_".$prenom_url;
             }          
         break;
         //////////////////////////////////////////////////////////////////////////
@@ -25,7 +25,7 @@ $prenom_url=str_replace(" ", "-", $prenom);
             $classe = "irap"; 
             if ((strcmp($pageProfil, "true")) > 0)
             {
-                $url_profil=$url_labo[IRAP]."profils/".$nom_url."_".$prenom_url;
+                $url_profil=$url_labo['IRAP']."profils/".$nom_url."_".$prenom_url;
             } 
         break;
         //////////////////////////////////////////////////////////////////////////
@@ -39,7 +39,7 @@ $prenom_url=str_replace(" ", "-", $prenom);
                 }
                 else
                 {
-                $url_profil=$url_labo[GET]."profils/".$nom_url."_".$prenom_url;
+                $url_profil=$url_labo['GET']."profils/".$nom_url."_".$prenom_url;
                 }
             }
         break;
@@ -48,13 +48,13 @@ $prenom_url=str_replace(" ", "-", $prenom);
             $classe = "aerologie";
             if ((strcmp($pageProfil, "true")) > 0)
             {
-                $url_profil=$url_labo[LA]."profils/".$nom_url."_".$prenom_url;
+                $url_profil=$url_labo['LA']."profils/".$nom_url."_".$prenom_url;
             }                   
         break;
         //////////////////////////////////////////////////////////////////////////
         case "LEGOS":
             $classe = "legos";   
-            $url_profil=$url_labo[LEGOS].$nom_url;
+            $url_profil=$url_labo['LEGOS'].$nom_url;
         break;
         //////////////////////////////////////////////////////////////////////////
         case "TBL":
@@ -66,7 +66,7 @@ $prenom_url=str_replace(" ", "-", $prenom);
             $classe = "ums";  
             if ((strcmp($pageProfil, "true")) > 0)
             {
-                $url_profil=$url_labo[UMS831]."profils/".$nom_url."_".$prenom_url;
+                $url_profil=$url_labo['UMS831']."profils/".$nom_url."_".$prenom_url;
             }          
         break;
     }
@@ -79,7 +79,7 @@ $prenom_url=str_replace(" ", "-", $prenom);
     echo "<p class=\"tel\"><span class=\"icon-phone\"></span> ";
         foreach ($tel as $telValue)
         {
-            echo "".$telValue." ";
+            echo "0".$telValue." ";
         }
     echo "</p>";
     echo "<p class=\"mail\"><span class=\"icon-mail-alt\"></span> ".$mail[0]."<i class=\"hide\">NO SPAM -- FILTER</i>@";

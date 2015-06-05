@@ -1,25 +1,12 @@
 <?php
-include("header.php");
-$name_file="listeWithPageProfil";
-$ext_file=".csv";
-$annuaire="".$name_file."".$ext_file."";
-//$pageProfil="false";
-
-//$dir="../annuaire-".$labo."";
-$file_annuaire="".$annuaire."";
-
-$acronymGroup = array(
-    "SAR" => "Service Appui Recherche",
-    "BIOGEOCHIM" => "Biogéochimie et transfert aux interfaces",
-    "ECSECO" => "Ecotoxicologie et santé des écosystèmes",
-    "CIRCE" => "Ecologie des communautés : interactions, interfaces & contraintes",
-    "DYNABIO" => "Dynamique passée et actuelle de la biodiversité terrestre",
-    "BIOREF" => "Biodiversité, réseaux trophiques et flux dans les écosystèmes auquatiques",
-);
 include ("parametres.php");
-
 $searchUser=strtoupper($_POST['searchUser']);
 $searchLabo=$_POST['searchLabo'];
+
+$titlePage="Annuaire ".$name_labo[$searchLabo]."";
+include("header.php");
+
+
 ?>
 
 <h1>Résultat de la recherche pour :<small> <?php echo "".$searchUser."";?></small></h1>
@@ -35,16 +22,13 @@ $searchLabo=$_POST['searchLabo'];
         <span class="icon-search"></span> OMP
         <p>Cherchez dans un autre labo</p>
     </a>
-
 </nav>
 
 <section class="ff-container-search">
-<ul id="group" class="list">
-
+    <ul id="group" class="list">
         <?php
         $searchFromLabo=true;
         include("searchResult.php");
-        
         ?>
     </ul>
 
