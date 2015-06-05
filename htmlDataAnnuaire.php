@@ -1,10 +1,8 @@
 <?php
-$name_file="listeWithPageProfil";
+/*$name_file="listeWithPageProfil";
 $ext_file=".csv";
 $annuaire="".$name_file."".$ext_file."";
-
-//$dir="../annuaire-".$labo."";
-$file_annuaire="".$annuaire."";
+$file_annuaire="".$annuaire."";*/
 
 $qLower=strtolower($q);
 if ($qLower==="la") {$qLower="aerologie";}
@@ -15,7 +13,7 @@ include ("parametres.php");
 $content="";
 $i=0;
 $file=fopen($file_annuaire, "r");
-
+$bgcolor="white";
 while(!feof($file)) 
 {
     $ligne=fgets($file, 10000);
@@ -38,7 +36,10 @@ while(!feof($file))
         ///// remplacement DE TOUS LES ESPACES par des "-" sur NOM PRENOM
             $nom_url=str_replace(" ", "-", $nom);
             $prenom_url=str_replace(" ", "-", $prenom);
-
+            if ($bgcolor=="white")
+                {$bgcolor="gray";}
+            else 
+                {$bgcolor="white";}
                 switch ($labo) {
                     //////////////////////////////////////////////////////////////////////////
                     case "CESBIO":
@@ -74,10 +75,11 @@ while(!feof($file))
                         $classe = "ums";        
                     break;
                 }
+                if ($site=="OMP Lannemezan") {$site="CRA Lann";}
 
-                $content.= "<tr>";
+                $content.= "<tr class=\"".$bgcolor."\">";
                 $content.= "<td>".$nom."</td>";
-                $content.= "<td>".$prenom."</td>";
+                $content.= "<td style=\"font-size:8px;\">".$prenom."</td>";
                 $content.= "<td>";
                     foreach ($tel as $telValue)
                     {
@@ -92,7 +94,7 @@ while(!feof($file))
                         $content.= " ".$equipeValue."<br>";
                     }
                 $content.= "</td>";
-                $content.= "<td>";
+                $content.= "<td class=\"text-center\">";
                     foreach ($bureau as $bureauValue)
                     {
                         if ($bureauValue !== "Accueil (BUREAU_PAR_DEFAUT)") {
@@ -101,7 +103,7 @@ while(!feof($file))
                         
                     }
                 $content.= "</td>";
-                $content.= "<td> ".$site."</td>";
+                $content.= "<td class=\"text-center\"> ".$site."</td>";
                 $content.= "<td>".$mail[0]."@";
             // Vérification que l'adresse mail ne soit pas no_mail@, clé 1 (domaine) non déclarée
                 if (array_key_exists (1, $mail))
@@ -121,16 +123,21 @@ while(!feof($file))
 h1 {width: 100%}
 
 table {
-    border:solid 1px #000000;
+    border:solid 1px #222;
     width: 100%;
     table-layout: fixed;
 }
 td, th {
-    border-bottom:solid 1px #000000;
+    border-bottom:solid 1px #222;
     border-right:solid 1px #AAA;
     padding: 2px 5px;
     vertical-align: middle;
 }
+
+.text-center {text-align: center;}
+
+.gray {background: #DDD;}
+.white {background: #FFF;}
 
 .cesbio {
   color: #B6CC49;
@@ -171,21 +178,22 @@ td, th {
         <h1 class=<?php echo "".$qLower.""; ?>>Annuaire <?php echo "".$q."";?></h1>         
     </page_header> 
     <table cellspacing="0" >
-        <col style="width: 14%">
-        <col style="width: 10%">
+        <col style="width: 18%">
+        <col style="width: 12%">
         <col style="width: 10%">
         <col style="width: 20%">
-        <col style="width: 10%">
-        <col style="width: 10%">
+        <col style="width: 7%">
+        <col style="width: 7%">
         <col style="width: 26%">
+
         <thead>
             <tr style="border-bottom:1px solid #555">
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Téléphone</th>
                 <th>Equipe</th>
-                <th>Bureau</th>
-                <th>Site</th>
+                <th class="text-center">Bureau</th>
+                <th class="text-center">Site</th>
                 <th>Mail</th>
             </tr>
         </thead>

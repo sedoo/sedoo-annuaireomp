@@ -6,19 +6,24 @@
     <meta name="description" content="">
     <meta name="author" content="P.VERT | Pôle web service communication OMP">
 
-    <title>Annuaire</title>
+    <title><?php echo "".$titlePage."";?></title>
 
-<link href="css/annuaire.css" rel="stylesheet" />
+<link href="css/font-annuaire.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
 <script src="js/jquery.min.js" type="text/javascript"></script>
-<!--<script src="js/jquery.listnav-2.1-OMP.js" type="text/javascript"></script>
-<script type="text/javascript" charset="utf-8">
+
+<?php
+if (isset($q)) {
+	echo "<script src=\"js/jquery.listnav-2.1-labo.js\" type=\"text/javascript\"></script>
+<script type=\"text/javascript\" charset=\"utf-8\">
 $(function(){
 $('#group').listnav({
 noMatchText: 'Aucune entrée pour cette lettre.',
 includeNums: false 
 });
 });
-</script>-->
+</script>";
+}
+?>
 </head>
 <body>

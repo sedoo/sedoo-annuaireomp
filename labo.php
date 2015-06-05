@@ -1,39 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="P.VERT | Pôle web service communication OMP">
 <?php
 
 $q=$_GET["q"];
-$name_file="listeWithPageProfil";
-$ext_file=".csv";
-$annuaire="".$name_file."".$ext_file."";
-
-//$dir="../annuaire-".$labo."";
-$file_annuaire="".$annuaire."";
-
-
-$acronymGroup = array(
-    "SAR" => "Service Appui Recherche",
-    "BIOGEOCHIM" => "Biogéochimie et transfert aux interfaces",
-    "ECSECO" => "Ecotoxicologie et santé des écosystèmes",
-    "CIRCE" => "Ecologie des communautés : interactions, interfaces & contraintes",
-    "DYNABIO" => "Dynamique passée et actuelle de la biodiversité terrestre",
-    "BIOREF" => "Biodiversité, réseaux trophiques et flux dans les écosystèmes auquatiques",
-);
 include ("parametres.php");
-?>
-    <title>Annuaire <?php echo "$name_labo[$q]";?></title>
 
+$titlePage="Annuaire ".$name_labo[$q]."";
+include ("header.php");
+
+//<title>Annuaire echo "$name_labo[$q]";</title>
+?>
+    
+<!--
 <link href="css/annuaire.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
-<?php
 
-echo "<link href=\"".$q.".css\" rel=\"stylesheet\" />";
-?>
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/jquery.listnav-2.1-labo.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8">
@@ -46,7 +25,7 @@ includeNums: false
 </script>
 
 </head>
-<body>
+<body>-->
 
 <?php
 $qLower=strtolower($q);
@@ -66,8 +45,7 @@ include ("form-search-labo.php");
     </a>
 </div>
 </nav>
-<a href="<?php echo "".$qLower."";?>.php"> Téléchargez l'annuaire en PDF </a><br>
-<a href="printPdf.php?q=<?php echo "".$q."";?>"> Téléchargez l'annuaire en PDF printPdf.php</a>
+<a href="printPdf.php?q=<?php echo "".$q."";?>"><span class="icon-print"></span> Version imprimable PDF</a>
 <section class="ff-container">
     
 

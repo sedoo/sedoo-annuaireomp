@@ -1,14 +1,7 @@
 <?php
-include("header.php");
-
-/*
-$name_file="listeWithPageProfil";
-$ext_file=".csv";
-$annuaire="".$name_file."".$ext_file."";
-$file_annuaire="".$annuaire."";
-*/
 include ("parametres.php");
-
+$titlePage="Annuaire OMP";
+include("header.php");
 include ("form-search.php");
 ?>
 

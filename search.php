@@ -1,22 +1,7 @@
 <?php
-include("header.php");
-$name_file="listeWithPageProfil";
-$ext_file=".csv";
-$annuaire="".$name_file."".$ext_file."";
-//$pageProfil="false";
-
-//$dir="../annuaire-".$labo."";
-$file_annuaire="".$annuaire."";
-
-$acronymGroup = array(
-    "SAR" => "Service Appui Recherche",
-    "BIOGEOCHIM" => "Biogéochimie et transfert aux interfaces",
-    "ECSECO" => "Ecotoxicologie et santé des écosystèmes",
-    "CIRCE" => "Ecologie des communautés : interactions, interfaces & contraintes",
-    "DYNABIO" => "Dynamique passée et actuelle de la biodiversité terrestre",
-    "BIOREF" => "Biodiversité, réseaux trophiques et flux dans les écosystèmes auquatiques",
-);
 include ("parametres.php");
+$titlePage="Annuaire OMP";
+include("header.php");
 
 $searchUser=strtoupper($_POST['searchUser']);
 
@@ -33,8 +18,8 @@ $searchUser=strtoupper($_POST['searchUser']);
 <ul id="group" class="list">
 
         <?php
+        $searchFromLabo=false;
         include("searchResult.php");
-
         ?>
     </ul>
 

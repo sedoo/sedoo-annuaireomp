@@ -4,7 +4,7 @@
 
 
 	<?php 
-		if ($q) {
+		if (isset($q)) {
 			$searchValue=$q;
 		}
 		else {
