@@ -79,7 +79,7 @@ $prenom_url=str_replace(" ", "-", $prenom);
     echo "<p class=\"tel\"><span class=\"icon-phone\"></span> ";
         foreach ($tel as $telValue)
         {
-            echo "0".$telValue." ";
+            echo "".$telValue." ";
         }
     echo "</p>";
     echo "<p class=\"mail\"><span class=\"icon-mail-alt\"></span> ".$mail[0]."<i class=\"hide\">NO SPAM -- FILTER</i>@";
