@@ -201,5 +201,6 @@ td, th {
     </table>
     <page_footer> 
        <p>Version : <?php echo date(DATE_RFC2822);?></p>
+       <p style="font-size:6px;color:#AAA">Sauvez un arbre, mangez un castor...</p>
     </page_footer>
 </page>
