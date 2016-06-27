@@ -1,0 +1,137 @@
+body
+{
+	background:#EEEEEE;
+}
+
+div#wrap
+{
+	padding: 0 0px 10px 0px;
+	box-shadow: 4px 2px 8px #555555;
+	margin-top: -1px;
+}
+
+div#infoMail
+{
+	padding:10px;
+	margin-bottom:10px;
+	position:fixed;
+	background:#0c64a0;
+	width:940px;
+	z-index:1000;
+    color:white;
+}
+
+a {background: #FFF;}
+
+h1 {font-size: 2em;}
+
+div#infoMail span
+{
+	color:#048FFD;
+    background: #FFF;
+    padding: 0 5px;
+    border-radius:5px;
+}
+
+/* Listing alphabétique (jquery)*/
+.listNav { margin:10px 0 10px; }
+.ln-letters { overflow:hidden; }
+.ln-letters a { font-size:0.9em; display:block; float:left; padding:2px 6px; border:1px solid silver; border-right:none; text-decoration:none; color;#0C64A0;}
+.ln-letters a.ln-last { border-right:1px solid silver; }
+.ln-letters a:hover,
+.ln-letters a.ln-selected { background-color:#DDDDDD;/*#eaeaea;*/ }
+.ln-letters a.ln-disabled { color:#ccc; }
+.ln-letter-count { text-align:center; font-size:0.8em; line-height:1; margin-bottom:3px; color:#336699; margin-top:5px;}
+
+table
+{
+	margin:150px 10px 0 10px;
+	width:98%;
+}
+
+table.sortable thead th
+{
+	color:#FFFFFF;
+	background:#0C64A0;
+}
+
+table.sortable thead th:hover
+{
+    background: none repeat scroll 0 0 #0a4e7d;
+}
+
+table.striped tr.alt:hover
+{
+    background: none repeat scroll 0 0 #DDDDDD;
+}
+
+    
+
+
+tbody tr.pair
+{
+	background:#F1F1ED;
+}
+
+tbody tr.impair
+{
+	background:#FAFAFA;
+}
+
+tbody tr:hover
+{
+	background:#DDDDDD;
+}
+
+tbody tr td:hover
+{
+	background:#CCCCCC;
+}
+
+td 
+{
+	border-bottom: 1px solid #FFFFFF;
+	border-left: 2px solid #FFFFFF;
+}
+
+td:nth-child(5)
+{ 
+	width:120px;
+	text-align:center;
+}
+
+td:nth-child(7)
+{ 
+	text-align:center;
+	padding:0;
+	margin:0;
+	
+}
+
+td:nth-child(7) a
+{ 
+	display:block;
+}
+
+td:nth-child(7) a img
+{
+	vertical-align:middle;
+}
+
+
+td:nth-child(7) a span
+{
+	display:none;
+}
+
+
+div.tooltip-right:hover
+{
+	background:#BBBBBB;
+}
+
+li.ln-no-match
+{
+	list-style:none;
+	margin-left:20px;
+}
