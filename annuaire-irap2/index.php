@@ -3,11 +3,11 @@ include("header.php");
 ?>
 
 
-<div id="wrap" class="clearfix">
+<div id="wrap" class="clearfix" style="width:100%">
 	<div id="infoMail">
 	    <h1>Annuaire Institut de Recherche en Astrophysique et Planétologie</h1>
 		<div id="group-nav" class="listNav"></div><!-- liste alpha -->
-		Pour contacter un membre du personnel de l’IRAP, veuillez envoyer un mail en utilisant le schéma suivant: <span>Prenom.Nom@irap.omp.eu</span>
+		<p>Pour contacter un membre du personnel de l’IRAP, veuillez envoyer un mail en utilisant le schéma suivant: <span>Prenom.Nom@irap.omp.eu</span></p>
 	</div>
     
 	<table class="striped sortable" cellspacing="0" cellpadding="0">
